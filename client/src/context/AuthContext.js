@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkUser = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/user', { withCredentials: true });
+        const res = await axios.get('https://moviehub-hfvs.onrender.com/api/user', { withCredentials: true });
         if (res.data) {
           setUser(res.data);
         }
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const res = await axios.post('http://localhost:5000/api/login', { email, password }, { withCredentials: true });
+      const res = await axios.post('https://moviehub-hfvs.onrender.com/api/login', { email, password }, { withCredentials: true });
       setUser(res.data.user);
       return true;
     } catch (error) {
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.get('http://localhost:5000/api/logout', { withCredentials: true });
+      await axios.get('https://moviehub-hfvs.onrender.com/api/logout', { withCredentials: true });
       setUser(null);
       return true;
     } catch (error) {

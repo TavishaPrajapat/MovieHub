@@ -18,7 +18,7 @@ const MovieDetail = () => {
 
   const fetchMovieDetail = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/movies/${id}`, { withCredentials: true });
+      const res = await axios.get(`https://moviehub-hfvs.onrender.com/api/movies/${id}`, { withCredentials: true });
       setMovie(res.data);
     } catch (error) {
       setError('Error fetching movie details');
@@ -33,7 +33,7 @@ const MovieDetail = () => {
     }
     if (window.confirm('Are you sure you want to delete this movie?')) {
       try {
-        const response = await axios.delete(`http://localhost:5000/api/movies/${id}`, { withCredentials: true });
+        const response = await axios.delete(`https://moviehub-hfvs.onrender.com/api/movies/${id}`, { withCredentials: true });
         if (response.status === 200) {
           navigate('/'); // Redirect to home after successful deletion
         }

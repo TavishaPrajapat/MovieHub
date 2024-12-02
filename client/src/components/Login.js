@@ -26,7 +26,7 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:5000/auth/google'; // Ensure this matches your backend route
+    window.location.href = 'https://moviehub-hfvs.onrender.com/auth/google'; // Ensure this matches your backend route
   };
 
   return (

@@ -11,7 +11,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/register', { name, email, password });
+      await axios.post('https://moviehub-hfvs.onrender.com/api/register', { name, email, password });
       alert('Registration successful! Please log in.');
       navigate('/login');
     } catch (error) {

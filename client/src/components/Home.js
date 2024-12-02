@@ -17,7 +17,7 @@ const Home = () => {
 
   const fetchMovies = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/movies', { withCredentials: true });
+      const res = await axios.get('https://moviehub-hfvs.onrender.com/api/movies', { withCredentials: true });
       setMovies(res.data);
     } catch (error) {
       setError('Error fetching movies'); // Set error state

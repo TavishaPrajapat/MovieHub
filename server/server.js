@@ -22,7 +22,7 @@ if (!fs.existsSync(uploadsDir)) {
 const app = express();
 
 // Middleware
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: 'https://moviehub-1-4tzm.onrender.com', credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
@@ -60,7 +60,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, async (email, passwor
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: '/auth/google/callback'
+    callbackURL: 'https://moviehub-hfvs.onrender.com/auth/google/callback'
   },
   async (accessToken, refreshToken, profile, done) => {
     try {
@@ -116,7 +116,7 @@ app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'em
 app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
   (req, res) => {
-    res.redirect('http://localhost:3000');
+    res.redirect('https://moviehub-1-4tzm.onrender.com');
   }
 );
 
