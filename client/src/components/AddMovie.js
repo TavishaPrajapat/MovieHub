@@ -1,49 +1,50 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react'; // Importing React and useState hook for managing state
+import axios from 'axios'; // Importing axios for making HTTP requests
+import { useNavigate } from 'react-router-dom'; // Importing useNavigate hook for navigation
 import './style.css';  // Importing the custom CSS for styling
 
-const AddMovie = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [image, setImage] = useState(null);  // State for storing image file
-  const [review, setReview] = useState('');  // State for movie review
-  const [rating, setRating] = useState('');  // State for movie rating
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
+const AddMovie = () => { // Declaring the AddMovie functional component
+  const [title, setTitle] = useState(''); // State for storing the movie title
+  const [description, setDescription] = useState(''); // State for storing the movie description
+  const [image, setImage] = useState(null);  // State for storing the selected image file
+  const [review, setReview] = useState('');  // State for storing the movie review
+  const [rating, setRating] = useState('');  // State for storing the movie rating
+  const [error, setError] = useState(''); // State for storing any error message
+  const navigate = useNavigate(); // Using useNavigate hook for programmatic navigation
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
+  const handleSubmit = async (e) => { // Function to handle form submission
+    e.preventDefault(); // Preventing the default form submission behavior
+    setError(''); // Clearing any previous error message
 
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('description', description);
-    formData.append('review', review);
-    formData.append('rating', rating);
+    const formData = new FormData(); // Creating a new FormData object to send data
+    formData.append('title', title); // Appending the movie title to FormData
+    formData.append('description', description); // Appending the movie description to FormData
+    formData.append('review', review); // Appending the movie review to FormData
+    formData.append('rating', rating); // Appending the movie rating to FormData
 
-    if (image) {
+    if (image) {// Checking if an image is selected
       formData.append('image', image);  // Append the image file to FormData
     }
 
-    try {
-      const response = await axios.post(
-        'https://moviehub-hfvs.onrender.com/api/movies',
-        formData,
+    try { // Try block to handle the form submission
+      const response = await axios.post( // Sending a POST request to the server
+        'http://localhost:5000/api/movies', // API endpoint for adding a movie
+        formData, // Sending the formData object
         {
-          withCredentials: true,
-          headers: { 'Content-Type': 'multipart/form-data' },
+          withCredentials: true, // Including credentials for authentication
+          headers: { 'Content-Type': 'multipart/form-data' }, // Setting the Content-Type header
         }
       );
-      console.log('Movie added:', response.data);
-      navigate('/'); // Redirect to homepage after successful submission
-    } catch (error) {
-      console.error('Error adding movie:', error);
-      setError(error.response?.data?.message || 'Failed to add movie. Please try again.');
+      console.log('Movie added:', response.data); // Logging the success response
+      navigate('/'); // Redirecting to the homepage after successful submission
+    } catch (error) { // Catch block to handle errors
+      console.error('Error adding movie:', error); // Logging the error
+      setError(error.response?.data?.message || 'Failed to add movie. Please try again.'); // Setting the error message
     }
   };
 
-  return (
+
+  return (// JSX to render the component
 <div className="add-movie-container">
   <div className="add-movie-card">
     <h2 className="add-movie-title">Add New Movie</h2>
@@ -119,4 +120,4 @@ const AddMovie = () => {
   );
 };
 
-export default AddMovie;
+export default AddMovie;// Exporting the AddMovie component

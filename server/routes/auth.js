@@ -40,7 +40,7 @@ router.put('/:id', isAuthenticated, async (req, res) => {
     // If a new image is uploaded, update the image URL
     if (req.file) {
       // Generate the image URL (assuming the image is stored in 'uploads' folder)
-      movie.image = `https://moviehub-hfvs.onrender.com/uploads/${req.file.filename}`;
+      movie.image = `http://localhost:5000/uploads/${req.file.filename}`;
     }
 
     // Save the updated movie

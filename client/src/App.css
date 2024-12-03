@@ -1,38 +1,38 @@
-.App {
-  text-align: center;
+.App { /* Style for the main app container */
+  text-align: center; /* Center-align the text and inline elements within the container */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-logo { /* Style for the app logo */
+  height: 40vmin; /* Set the height of the logo to 40% of the viewport's smaller dimension */
+  pointer-events: none; /* Disable pointer events (mouse clicks, etc.) on the logo */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (prefers-reduced-motion: no-preference) { /* Media query for users who have not requested reduced motion */
+  .App-logo { /* Target the logo when reduced motion is not preferred */
+    animation: App-logo-spin infinite 20s linear; /* Apply a spinning animation to the logo indefinitely */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App-header { /* Style for the header of the app */
+  background-color: #282c34; /* Set the background color of the header to a dark shade */
+  min-height: 100vh; /* Set the minimum height of the header to 100% of the viewport height */
+  display: flex; /* Use flexbox to arrange child elements */
+  flex-direction: column; /* Arrange child elements vertically */
+  align-items: center; /* Center-align the items horizontally */
+  justify-content: center; /* Center-align the items vertically */
+  font-size: calc(10px + 2vmin); /* Set the font size dynamically based on the viewport size */
+  color: white; /* Set the text color to white */
 }
 
-.App-link {
-  color: #61dafb;
+.App-link { /* Style for links within the app */
+  color: #61dafb; /* Set the color of links to a light blue */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes App-logo-spin { /* Define a keyframe animation for spinning the logo */
+  from { /* Starting point of the animation */
+    transform: rotate(0deg); /* Start with no rotation */
   }
-  to {
-    transform: rotate(360deg);
+  to { /* Ending point of the animation */
+    transform: rotate(360deg); /* Complete a full rotation (360 degrees) */
   }
 }

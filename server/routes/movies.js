@@ -50,7 +50,7 @@ router.post('/', isAuthenticated, upload.single('image'), async (req, res) => {
       description,
       review,
       rating,
-      image: req.file ? `https://moviehub-hfvs.onrender.com/uploads/${req.file.filename}` : null,
+      image: req.file ? `http://localhost:5000/uploads/${req.file.filename}` : null,
       createdBy: req.user._id,
     });
 
@@ -117,7 +117,7 @@ router.put('/:id', isAuthenticated, upload.single('image'), async (req, res) => 
 
     // Update the movie image if a new file is uploaded
     if (req.file) {
-      movie.image = `https://moviehub-hfvs.onrender.com/uploads/${req.file.filename}`;
+      movie.image = `http://localhost:5000/uploads/${req.file.filename}`;
     }
 
     const updatedMovie = await movie.save();
