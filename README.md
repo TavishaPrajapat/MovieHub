@@ -167,10 +167,15 @@ This project includes the following advanced features:
 ### **Acknowledgments (External Sources Used):**
 
 https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express
+
 https://expressjs.com/en/guide/using-middleware.html
+
 https://www.passportjs.org/concepts/authentication/middleware/
+
 https://www.passportjs.org/concepts/authentication/google/
+
 https://react.dev/reference/react/useEffect
+
 https://chatgpt.com/
 
 ---
